@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LogToScreen : MonoBehaviour
 {
-    uint gsize = 15; //number of messages to keep
+    uint qsize = 15; //number of messages to keep
     Queue myLogQueue = new Queue();
     // Start is called before the first frame update
     void Start()
@@ -12,7 +12,7 @@ public class LogToScreen : MonoBehaviour
         Debug.Log("Started up logging.");
     }
 
-    vois OnEnable(){
+    void OnEnable(){
     	Application.logMessageReceived += HandleLog;
     }
 
@@ -22,7 +22,7 @@ public class LogToScreen : MonoBehaviour
 
     void HandleLog(string logString, string stackTrace, LogType type){
     	myLogQueue.Enqueue("[" + type + "] : " + logString);
-    	if(type == LogType.Execption){
+    	if(type == LogType.Exception){
     		myLogQueue.Enqueue(stackTrace);
     	}
     	while (myLogQueue.Count > qsize){
