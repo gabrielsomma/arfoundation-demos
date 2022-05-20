@@ -70,9 +70,7 @@ public class PlaceObjectsOnPlane : MonoBehaviour
 
                     if (m_NumberOfPlacedObjects < m_MaxNumberOfObjectsToPlace)
                     {
-
                         Spawner.Instance.setTurretPosition(hitPose.position);
-
                         Spawner.Instance.spawnRedPlane();
                         Spawner.Instance.spawnGreenPlane();
                         Spawner.Instance.spawnOrangePlane();
